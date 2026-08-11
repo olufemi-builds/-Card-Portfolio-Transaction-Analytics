@@ -170,7 +170,7 @@ This structure allows transaction performance to be analyzed by:
 
 ## Dashboard
 
-The Power BI dashboard is structured around four analytical areas.
+![Card Portfolio and Transaction Analytics Dashboard](Card%20Portfolio%20and%20Transaction%20Analytics.png)
 
 ### Executive Overview
 
