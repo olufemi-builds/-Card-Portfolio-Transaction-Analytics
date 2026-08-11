@@ -4,9 +4,13 @@ Power BI | SQL | Excel | Power Query | DAX | Python
 
 A synthetic card and transaction analytics project designed to demonstrate how transaction-level data can be cleaned, validated, modeled, analyzed, and converted into business-focused KPIs and dashboards.
 
+The project simulates a card portfolio environment covering transaction performance, card usage, customer behavior, regional performance, merchant categories, transaction channels, and transaction outcomes.
+
+---
+
 ## Project Overview
 
-This project simulates a card portfolio analytics environment covering transaction performance, card usage, customer behavior, regional performance, merchant categories, transaction channels, transaction outcomes, and card activation.
+The objective of this project is to build a business-facing analytics solution for monitoring card portfolio and transaction performance.
 
 The analysis focuses on:
 
@@ -25,22 +29,31 @@ The analysis focuses on:
 - Monthly transaction trends
 - Data quality and validation
 
+The project was designed around analytical requirements commonly found in card, payments, banking, and financial services environments.
+
+---
+
 ## Business Questions
 
-- How many card transactions are processed each month?
-- What is the total transaction value?
-- What percentage of transactions are successful?
-- Which regions generate the highest transaction value?
-- Which card types generate the most transaction activity?
-- Which transaction channels are most frequently used?
-- Which merchant categories generate the highest transaction value?
-- What percentage of transactions are declined or reversed?
-- How does transaction activity change over time?
-- Which transaction patterns require further investigation?
-- How many cards are active versus inactive?
-- Which regions have the strongest card activity?
-- Which channels or merchant categories have higher decline rates?
-- Where are potential card activation opportunities?
+The analysis is designed to answer questions such as:
+
+1. How many card transactions are processed each month?
+2. What is the total transaction value?
+3. What percentage of transactions are successful?
+4. Which regions generate the highest transaction value?
+5. Which card types generate the most transaction activity?
+6. Which transaction channels are most frequently used?
+7. Which merchant categories generate the highest transaction value?
+8. What percentage of transactions are declined or reversed?
+9. How does transaction activity change over time?
+10. Which transaction patterns require further investigation?
+11. How many cards are active versus inactive?
+12. Which regions have the strongest card activity?
+13. Are there unusual transaction patterns or performance variances?
+14. Which channels or merchant categories have higher decline rates?
+15. Where are there potential card activation opportunities?
+
+---
 
 ## Dataset
 
@@ -48,9 +61,9 @@ The project uses two synthetic datasets.
 
 ### Card Transactions
 
-`data/card_transactions.csv`
+File: `data/card_transactions.csv`
 
-Contains 2,500 synthetic card transactions covering January to June 2026.
+The dataset contains 2,500 synthetic card transactions covering January to June 2026.
 
 | Field | Description |
 |---|---|
@@ -69,9 +82,9 @@ Contains 2,500 synthetic card transactions covering January to June 2026.
 
 ### Card Portfolio
 
-`data/card_portfolio.csv`
+File: `data/card_portfolio.csv`
 
-Contains 600 synthetic cards.
+The dataset contains 600 synthetic cards.
 
 | Field | Description |
 |---|---|
@@ -83,27 +96,33 @@ Contains 600 synthetic cards.
 | activation_status | Active or Inactive |
 | monthly_limit_ngn | Assigned monthly card limit |
 
+---
+
 ## Data Preparation
 
-Power Query was used to prepare the datasets for analysis.
+The datasets were prepared for analysis using Power Query.
 
-Key preparation activities included:
+Key preparation steps included:
 
 - Reviewing column data types
 - Standardizing date fields
 - Standardizing categorical values
 - Checking transaction amounts
-- Checking missing values
-- Checking duplicate transaction IDs
+- Checking for missing values
+- Checking for duplicate transaction IDs
 - Creating transaction month fields
 - Creating transaction success indicators
 - Validating transaction statuses
-- Reviewing customer and card relationships
+- Reviewing relationships between customers and cards
 - Preparing datasets for Power BI modeling
+
+---
 
 ## Data Quality Checks
 
-Data quality checks include:
+Data quality was treated as an important part of the analytical process.
+
+The following checks were considered:
 
 - Duplicate transaction IDs
 - Missing transaction values
@@ -116,9 +135,13 @@ Data quality checks include:
 - Date validation
 - Referential integrity between cards and transactions
 
+The objective is to ensure that dashboard outputs are based on consistent and reliable data.
+
+---
+
 ## Power BI Data Model
 
-The model uses two main tables:
+The Power BI model uses the card transaction table and card portfolio table.
 
     Card Portfolio
           |
@@ -131,7 +154,7 @@ The Card Portfolio table provides card-level attributes.
 
 The Card Transactions table provides transaction-level activity.
 
-This allows transaction performance to be analyzed by:
+This structure allows transaction performance to be analyzed by:
 
 - Card type
 - Region
@@ -143,13 +166,17 @@ This allows transaction performance to be analyzed by:
 - Merchant category
 - Transaction status
 
-# Dashboard
+---
 
-## Executive Overview
+## Dashboard
 
-The executive dashboard provides a high-level view of card and transaction performance.
+The Power BI dashboard is structured around four analytical areas.
 
-### KPIs
+### Executive Overview
+
+The executive overview provides a high-level view of card and transaction performance.
+
+Key KPIs:
 
 - Total Transactions
 - Transaction Value
@@ -162,7 +189,7 @@ The executive dashboard provides a high-level view of card and transaction perfo
 - Active Cards
 - Activation Rate
 
-### Visuals
+Recommended visuals:
 
 - Monthly transaction trend
 - Transaction value by region
@@ -172,7 +199,7 @@ The executive dashboard provides a high-level view of card and transaction perfo
 - Transaction value by merchant category
 - Active versus inactive cards
 
-## Transaction Performance
+### Transaction Performance
 
 This page focuses on transaction activity and transaction outcomes.
 
@@ -197,7 +224,9 @@ Filters include:
 - Merchant category
 - Transaction status
 
-## Customer & Transaction Analysis
+The page is designed to identify changes in transaction performance and areas requiring further investigation.
+
+### Customer & Transaction Analysis
 
 This page examines customer transaction behavior.
 
@@ -213,9 +242,11 @@ Analysis includes:
 - Transaction frequency by customer
 - Transaction value by customer
 
-## Card Performance
+The objective is to identify customer and transaction patterns that can support business decisions.
 
-This page focuses on card portfolio performance.
+### Card Performance
+
+This page focuses on the card portfolio.
 
 Metrics include:
 
@@ -229,19 +260,25 @@ Metrics include:
 - Card usage patterns
 - Average transaction value by card type
 
-# DAX Measures
+The analysis can help identify card activation gaps and differences in usage across the portfolio.
 
-## Total Transactions
+---
+
+## DAX Measures
+
+The following DAX measures are used to create the main dashboard KPIs.
+
+### Total Transactions
 
     Total Transactions =
     COUNTROWS(CardTransactions)
 
-## Transaction Value
+### Transaction Value
 
     Transaction Value =
     SUM(CardTransactions[transaction_amount_ngn])
 
-## Successful Transactions
+### Successful Transactions
 
     Successful Transactions =
     CALCULATE(
@@ -249,7 +286,7 @@ Metrics include:
         CardTransactions[status] = "Successful"
     )
 
-## Successful Transaction Value
+### Successful Transaction Value
 
     Successful Transaction Value =
     CALCULATE(
@@ -257,7 +294,7 @@ Metrics include:
         CardTransactions[status] = "Successful"
     )
 
-## Success Rate
+### Success Rate
 
     Success Rate =
     DIVIDE(
@@ -268,7 +305,7 @@ Metrics include:
 
 Format as Percentage.
 
-## Declined Transactions
+### Declined Transactions
 
     Declined Transactions =
     CALCULATE(
@@ -276,7 +313,7 @@ Format as Percentage.
         CardTransactions[status] = "Declined"
     )
 
-## Decline Rate
+### Decline Rate
 
     Decline Rate =
     DIVIDE(
@@ -287,7 +324,7 @@ Format as Percentage.
 
 Format as Percentage.
 
-## Reversed Transactions
+### Reversed Transactions
 
     Reversed Transactions =
     CALCULATE(
@@ -295,7 +332,7 @@ Format as Percentage.
         CardTransactions[status] = "Reversed"
     )
 
-## Reversal Rate
+### Reversal Rate
 
     Reversal Rate =
     DIVIDE(
@@ -306,7 +343,7 @@ Format as Percentage.
 
 Format as Percentage.
 
-## Average Transaction Value
+### Average Transaction Value
 
     Average Transaction Value =
     DIVIDE(
@@ -315,12 +352,12 @@ Format as Percentage.
         0
     )
 
-## Total Cards
+### Total Cards
 
     Total Cards =
     DISTINCTCOUNT(CardPortfolio[card_id])
 
-## Active Cards
+### Active Cards
 
     Active Cards =
     CALCULATE(
@@ -328,7 +365,7 @@ Format as Percentage.
         CardPortfolio[activation_status] = "Active"
     )
 
-## Inactive Cards
+### Inactive Cards
 
     Inactive Cards =
     CALCULATE(
@@ -336,7 +373,7 @@ Format as Percentage.
         CardPortfolio[activation_status] = "Inactive"
     )
 
-## Activation Rate
+### Activation Rate
 
     Activation Rate =
     DIVIDE(
@@ -347,9 +384,13 @@ Format as Percentage.
 
 Format as Percentage.
 
-# SQL Analysis
+---
 
-## Transaction Performance by Card Type
+## SQL Analysis
+
+SQL was used to perform transaction analysis and generate business-level metrics.
+
+### Transaction Performance by Card Type
 
     SELECT
         card_type,
@@ -361,7 +402,9 @@ Format as Percentage.
     GROUP BY card_type
     ORDER BY transaction_value DESC;
 
-## Monthly Transaction Performance
+This identifies which card types generate the highest successful transaction value.
+
+### Monthly Transaction Performance
 
     SELECT
         transaction_month,
@@ -372,7 +415,9 @@ Format as Percentage.
     GROUP BY transaction_month
     ORDER BY transaction_month;
 
-## Transaction Performance by Region
+This supports monthly transaction performance monitoring.
+
+### Transaction Performance by Region
 
     SELECT
         region,
@@ -384,7 +429,9 @@ Format as Percentage.
     GROUP BY region
     ORDER BY transaction_value DESC;
 
-## Transaction Status Analysis
+This identifies the regions generating the highest successful transaction activity.
+
+### Transaction Status Analysis
 
     SELECT
         status,
@@ -394,7 +441,9 @@ Format as Percentage.
     GROUP BY status
     ORDER BY transaction_count DESC;
 
-## Channel Analysis
+This monitors successful, declined, and reversed transactions.
+
+### Channel Analysis
 
     SELECT
         channel,
@@ -405,7 +454,9 @@ Format as Percentage.
     GROUP BY channel
     ORDER BY transaction_value DESC;
 
-## Merchant Category Analysis
+This identifies the transaction channels generating the highest activity.
+
+### Merchant Category Analysis
 
     SELECT
         merchant_category,
@@ -417,7 +468,9 @@ Format as Percentage.
     GROUP BY merchant_category
     ORDER BY transaction_value DESC;
 
-## Customer Analysis
+This provides insight into customer spending behavior across merchant categories.
+
+### Customer Analysis
 
     SELECT
         customer_id,
@@ -429,7 +482,9 @@ Format as Percentage.
     GROUP BY customer_id
     ORDER BY transaction_value DESC;
 
-## High-Value Transaction Analysis
+This identifies customers with higher transaction frequency and transaction value.
+
+### High-Value Transaction Analysis
 
     SELECT
         transaction_id,
@@ -446,7 +501,9 @@ Format as Percentage.
     WHERE transaction_amount_ngn >= 500000
     ORDER BY transaction_amount_ngn DESC;
 
-## Transaction Decline Analysis
+This supports investigation of high-value transactions.
+
+### Transaction Decline Analysis
 
     SELECT
         region,
@@ -462,9 +519,13 @@ Format as Percentage.
         merchant_category
     ORDER BY declined_transactions DESC;
 
-# Data Quality SQL
+This helps identify areas with higher transaction decline activity.
 
-## Duplicate Transactions
+---
+
+## Data Quality SQL
+
+### Duplicate Transactions
 
     SELECT
         transaction_id,
@@ -473,21 +534,21 @@ Format as Percentage.
     GROUP BY transaction_id
     HAVING COUNT(*) > 1;
 
-## Missing Transaction Values
+### Missing Transaction Values
 
     SELECT
         COUNT(*) AS missing_amounts
     FROM card_transactions
     WHERE transaction_amount_ngn IS NULL;
 
-## Invalid Transaction Amounts
+### Invalid Transaction Amounts
 
     SELECT
         COUNT(*) AS invalid_amounts
     FROM card_transactions
     WHERE transaction_amount_ngn <= 0;
 
-## Transaction Status Distribution
+### Transaction Status Distribution
 
     SELECT
         status,
@@ -496,7 +557,7 @@ Format as Percentage.
     GROUP BY status
     ORDER BY transaction_count DESC;
 
-## Duplicate Cards
+### Duplicate Cards
 
     SELECT
         card_id,
@@ -505,11 +566,13 @@ Format as Percentage.
     GROUP BY card_id
     HAVING COUNT(*) > 1;
 
-# Excel Analysis
+---
+
+## Excel Analysis
 
 Excel can be used to validate and analyze the datasets before loading them into Power BI.
 
-## XLOOKUP
+### XLOOKUP
 
     =XLOOKUP(
         A2,
@@ -518,9 +581,9 @@ Excel can be used to validate and analyze the datasets before loading them into 
         "Not Found"
     )
 
-Retrieves card attributes.
+Used to retrieve card attributes.
 
-## SUMIFS
+### SUMIFS
 
     =SUMIFS(
         CardTransactions[transaction_amount_ngn],
@@ -528,18 +591,18 @@ Retrieves card attributes.
         "Successful"
     )
 
-Calculates successful transaction value.
+Used to calculate successful transaction value.
 
-## COUNTIFS
+### COUNTIFS
 
     =COUNTIFS(
         CardTransactions[status],
         "Successful"
     )
 
-Counts successful transactions.
+Used to count successful transactions.
 
-## AVERAGEIFS
+### AVERAGEIFS
 
     =AVERAGEIFS(
         CardTransactions[transaction_amount_ngn],
@@ -547,9 +610,9 @@ Counts successful transactions.
         "Successful"
     )
 
-Calculates average successful transaction value.
+Used to calculate average successful transaction value.
 
-## COUNTIFS by Region
+### COUNTIFS by Region
 
     =COUNTIFS(
         CardTransactions[region],
@@ -558,9 +621,9 @@ Calculates average successful transaction value.
         "Successful"
     )
 
-Calculates successful transaction volume by region.
+Used to calculate successful transaction volume by region.
 
-## SUMIFS by Region
+### SUMIFS by Region
 
     =SUMIFS(
         CardTransactions[transaction_amount_ngn],
@@ -570,9 +633,11 @@ Calculates successful transaction volume by region.
         "Successful"
     )
 
-Calculates successful transaction value by region.
+Used to calculate successful transaction value by region.
 
-# Key KPIs
+---
+
+## Key KPIs
 
 | KPI | Definition |
 |---|---|
@@ -588,9 +653,11 @@ Calculates successful transaction value by region.
 | Inactive Cards | Number of cards with Inactive status |
 | Activation Rate | Active cards divided by total cards |
 
-# Business Insights
+---
 
-The dashboard is designed to identify:
+## Business Insights
+
+The dashboard is designed to help identify:
 
 - Regions generating the highest transaction value
 - Card types with stronger transaction activity
@@ -603,33 +670,32 @@ The dashboard is designed to identify:
 - Card activation gaps
 - High-value transaction patterns
 - Customers with high transaction activity
-- Areas requiring further investigation
+- Areas requiring further operational investigation
 
-The analysis connects KPI movements to business questions rather than presenting metrics in isolation.
+The analysis connects KPI movements to potential business questions rather than presenting metrics in isolation.
 
-# Business Recommendations
+---
+
+## Business Recommendations
+
+The following recommendations can be developed from the analysis:
 
 1. Investigate regions with high transaction volume but lower transaction value.
-
 2. Review transaction decline patterns by channel and merchant category.
-
 3. Monitor reversal rates for unusual increases.
-
 4. Focus card activation activities on regions with high inactive-card levels.
-
 5. Analyze high-value customer transaction patterns to identify customer engagement opportunities.
-
 6. Monitor monthly transaction trends to identify changes in card usage.
-
 7. Review underperforming card types and customer segments.
-
 8. Investigate transaction channels with unusual decline or reversal patterns.
-
 9. Compare transaction volume with transaction value to identify differences in customer behavior.
-
 10. Use transaction and customer behavior data to support product and operational decisions.
 
-# Analytical Approach
+---
+
+## Analytical Approach
+
+The project follows a complete analytics workflow:
 
     Raw Data
        |
@@ -660,13 +726,17 @@ The analysis connects KPI movements to business questions rather than presenting
        v
     Recommendations
 
-# Dashboard Preview
+---
 
-The dashboard provides an executive view of:
+## Dashboard Preview
+
+The Power BI dashboard is designed to provide an executive view of card portfolio and transaction performance.
+
+### Executive Overview
 
 - Transaction volume
 - Transaction value
-- Success rate
+- Successful transaction rate
 - Average transaction value
 - Active cards
 - Activation rate
@@ -674,39 +744,73 @@ The dashboard provides an executive view of:
 - Card type performance
 - Transaction status
 - Monthly trends
-- Channel performance
-- Merchant category performance
 
-![Card Portfolio Analytics Dashboard](screenshots/dashboard_mockup.png)
+### Transaction Performance
 
-# Project Structure
+- Monthly transaction trends
+- Transaction volume by region
+- Transaction value by region
+- Transaction performance by card type
+- Transaction status distribution
+- Decline and reversal analysis
+- Transaction volume by channel
+- Transaction value by merchant category
+
+### Customer & Transaction Analysis
+
+- Customer transaction frequency
+- Customer transaction value
+- Average transaction value
+- High-value transactions
+- Customer activity by region
+- Merchant category preferences
+- Channel usage patterns
+
+### Card Performance
+
+- Cards issued
+- Active cards
+- Inactive cards
+- Activation rate
+- Transaction activity by card type
+- Transaction value by card type
+- Regional card activity
+- Card usage patterns
+
+The dashboard screenshot can be added later once the Power BI report and image have been uploaded to the repository.
+
+---
+
+## Project Structure
 
     Card-Portfolio-Transaction-Analytics/
-    |
+    │
     ├── README.md
-    |
+    │
     ├── data/
     │   ├── card_transactions.csv
     │   └── card_portfolio.csv
-    |
+    │
     ├── powerbi/
     │   └── card_portfolio_analytics.pbix
-    |
+    │
     ├── sql/
     │   ├── transaction_analysis.sql
     │   ├── customer_analysis.sql
     │   └── data_quality_checks.sql
-    |
+    │
     ├── dax/
     │   └── kpi_measures.dax
-    |
+    │
     ├── screenshots/
     │   └── dashboard_mockup.png
-    |
+    │
     └── documentation/
         └── data_dictionary.md
 
-# Tools Used
+---
+
+## Tools Used
 
 - Microsoft Power BI
 - DAX
@@ -717,7 +821,11 @@ The dashboard provides an executive view of:
 - Git
 - GitHub
 
-# Skills Demonstrated
+---
+
+## Skills Demonstrated
+
+This project demonstrates practical experience in:
 
 - Card transaction analysis
 - Customer behavior analysis
@@ -741,7 +849,9 @@ The dashboard provides an executive view of:
 - Business-focused insight generation
 - Analytical problem solving
 
-# Portfolio Relevance
+---
+
+## Portfolio Relevance
 
 This project was developed as a portfolio case study for Data Analyst roles involving card portfolio reporting, transaction analytics, customer analytics, and business performance monitoring.
 
@@ -770,7 +880,9 @@ The project is particularly relevant to roles involving:
 - Data quality
 - Operational analytics
 
-# Disclaimer
+---
+
+## Disclaimer
 
 All data used in this project is synthetic.
 
