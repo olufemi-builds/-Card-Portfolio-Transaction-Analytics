@@ -61,7 +61,7 @@ The project uses two synthetic datasets.
 
 ### Card Transactions
 
-File: `data/card_transactions.csv`
+File: `card_transactions.csv`
 
 The dataset contains 2,500 synthetic card transactions covering January to June 2026.
 
@@ -82,7 +82,7 @@ The dataset contains 2,500 synthetic card transactions covering January to June 
 
 ### Card Portfolio
 
-File: `data/card_portfolio.csv`
+File: `card_portfolio.csv`
 
 The dataset contains 600 synthetic cards.
 
@@ -730,7 +730,9 @@ The project follows a complete analytics workflow:
 
 ## Dashboard Preview
 
-The Power BI dashboard is designed to provide an executive view of card portfolio and transaction performance.
+The Power BI dashboard provides an executive view of card portfolio and transaction performance.
+
+![Card Portfolio and Transaction Analytics Dashboard](Card%20Portfolio%20and%20Transaction%20Analytics.png)
 
 ### Executive Overview
 
@@ -777,8 +779,6 @@ The Power BI dashboard is designed to provide an executive view of card portfoli
 - Regional card activity
 - Card usage patterns
 
-The dashboard screenshot can be added later once the Power BI report and image have been uploaded to the repository.
-
 ---
 
 ## Project Structure
@@ -786,27 +786,9 @@ The dashboard screenshot can be added later once the Power BI report and image h
     Card-Portfolio-Transaction-Analytics/
     │
     ├── README.md
-    │
-    ├── data/
-    │   ├── card_transactions.csv
-    │   └── card_portfolio.csv
-    │
-    ├── powerbi/
-    │   └── card_portfolio_analytics.pbix
-    │
-    ├── sql/
-    │   ├── transaction_analysis.sql
-    │   ├── customer_analysis.sql
-    │   └── data_quality_checks.sql
-    │
-    ├── dax/
-    │   └── kpi_measures.dax
-    │
-    ├── screenshots/
-    │   └── dashboard_mockup.png
-    │
-    └── documentation/
-        └── data_dictionary.md
+    ├── card_portfolio.csv
+    ├── card_transactions.csv
+    └── Card Portfolio and Transaction Analytics.png
 
 ---
 
