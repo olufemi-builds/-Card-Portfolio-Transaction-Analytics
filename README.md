@@ -166,101 +166,6 @@ This structure allows transaction performance to be analyzed by:
 - Merchant category
 - Transaction status
 
----
-
-## Dashboard
-
-![Card Portfolio and Transaction Analytics Dashboard](Card%20Portfolio%20and%20Transaction%20Analytics.png)
-
-### Executive Overview
-
-The executive overview provides a high-level view of card and transaction performance.
-
-Key KPIs:
-
-- Total Transactions
-- Transaction Value
-- Successful Transactions
-- Success Rate
-- Average Transaction Value
-- Declined Transactions
-- Reversed Transactions
-- Total Cards
-- Active Cards
-- Activation Rate
-
-Recommended visuals:
-
-- Monthly transaction trend
-- Transaction value by region
-- Transaction value by card type
-- Transaction status distribution
-- Transaction volume by channel
-- Transaction value by merchant category
-- Active versus inactive cards
-
-### Transaction Performance
-
-This page focuses on transaction activity and transaction outcomes.
-
-Metrics include:
-
-- Transaction volume
-- Transaction value
-- Average transaction value
-- Successful transactions
-- Success rate
-- Declined transactions
-- Decline rate
-- Reversed transactions
-- Reversal rate
-
-Filters include:
-
-- Transaction date
-- Region
-- Card type
-- Channel
-- Merchant category
-- Transaction status
-
-The page is designed to identify changes in transaction performance and areas requiring further investigation.
-
-### Customer & Transaction Analysis
-
-This page examines customer transaction behavior.
-
-Analysis includes:
-
-- Customer transaction frequency
-- Customer transaction value
-- Average transaction value
-- Merchant category preferences
-- Channel usage
-- High-value transactions
-- Regional customer activity
-- Transaction frequency by customer
-- Transaction value by customer
-
-The objective is to identify customer and transaction patterns that can support business decisions.
-
-### Card Performance
-
-This page focuses on the card portfolio.
-
-Metrics include:
-
-- Cards issued
-- Active cards
-- Inactive cards
-- Activation rate
-- Transactions by card type
-- Transaction value by card type
-- Regional card activity
-- Card usage patterns
-- Average transaction value by card type
-
-The analysis can help identify card activation gaps and differences in usage across the portfolio.
 
 ---
 
@@ -746,6 +651,38 @@ The Power BI dashboard provides an executive view of card portfolio and transact
 - Card type performance
 - Transaction status
 - Monthly trends
+
+### Transaction Performance
+
+- Monthly transaction trends
+- Transaction volume by region
+- Transaction value by region
+- Transaction performance by card type
+- Transaction status distribution
+- Decline and reversal analysis
+- Transaction volume by channel
+- Transaction value by merchant category
+
+### Customer & Transaction Analysis
+
+- Customer transaction frequency
+- Customer transaction value
+- Average transaction value
+- High-value transactions
+- Customer activity by region
+- Merchant category preferences
+- Channel usage patterns
+
+### Card Performance
+
+- Cards issued
+- Active cards
+- Inactive cards
+- Activation rate
+- Transaction activity by card type
+- Transaction value by card type
+- Regional card activity
+- Card usage patterns
 
 ### Transaction Performance
 
