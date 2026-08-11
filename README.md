@@ -167,6 +167,7 @@ Transaction date
 Channel
 Merchant category
 Transaction status
+
 Dashboard
 The Power BI dashboard is structured around four analytical areas.
 Executive Overview
@@ -182,6 +183,7 @@ Reversed Transactions
 Total Cards
 Active Cards
 Activation Rate
+
 Recommended Visuals
 Monthly transaction trend
 Transaction value by region
@@ -191,6 +193,7 @@ Transaction volume by channel
 Transaction value by merchant category
 Active versus inactive cards
 Transaction Performance
+
 This page focuses on transaction activity and transaction outcomes.
 Metrics
 Transaction volume
@@ -211,6 +214,7 @@ Merchant category
 Transaction status
 The page is designed to help identify changes in transaction performance and areas requiring further investigation.
 Customer & Transaction Analysis
+
 This page examines customer transaction behavior.
 Analysis
 Customer transaction frequency
@@ -224,6 +228,7 @@ Transaction frequency by customer
 Transaction value by customer
 The objective is to identify customer and transaction patterns that can support business decisions.
 Card Performance
+
 This page focuses on the card portfolio.
 Metrics
 Cards issued
@@ -653,6 +658,7 @@ Transaction monitoring
 Root cause analysis
 Business-focused insight generation
 Analytical problem solving
+
 Portfolio Relevance
 This project was developed as a portfolio case study for Data Analyst roles involving card portfolio reporting, transaction analytics, customer analytics, and business performance monitoring.
 It demonstrates the ability to:
@@ -667,6 +673,7 @@ Build analytical data models
 Identify trends and anomalies
 Investigate transaction performance
 Communicate findings through business-focused reporting
+
 The project is particularly relevant to roles involving:
 Card portfolio analytics
 Transaction monitoring
@@ -676,6 +683,7 @@ Business intelligence
 Performance reporting
 Data quality
 Operational analytics
+
 Disclaimer
 All data used in this project is synthetic.
 The datasets do not contain real customer, card, transaction, banking, payment, or financial information.
